@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
 import {resume} from "react-dom/server";
 import {resumes} from "~/routes/constants";
+import ResumeCard from "~/components/ResumeCard";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,9 +19,11 @@ export default function Home() {
                 <h2>Submit and get AI-powered feedback</h2>
             </div>
         </section>
-        {resumes.map((resume) =>
-        <div>
-            <h1>{resume.jobTitle}</h1>
-        </div>)}
+        {resumes.length > 0 && (
+            <div className={"resume-section flex flex-row gap-4"}>
+                {resumes.map((resume) => (
+                    <ResumeCard key={resume.id} resume={resume}/> ))}
+            </div>
+        )}
     </main>;
 }
