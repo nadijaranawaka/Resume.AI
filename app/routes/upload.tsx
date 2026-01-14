@@ -23,8 +23,8 @@ const upload = () => {
       )
 
   }
-  const handleFileSelect = (file : File | null) => {
-    setFile(file)
+  const handleFileSelect = (f : File | null) => {
+    setFile(f)
 }
   return (
       <main className={'bg-[url(\'/images/bg-main.svg\')] bg-cover'}>
@@ -56,7 +56,7 @@ const upload = () => {
                           </div>
                           <div className={'form-div'}>
                               <label htmlFor={'uploader'}>Upload Resume</label>
-                              <FileUploader onFileSelect={handleFileSelect}/>
+                              <FileUploader file={file} onFileSelect={handleFileSelect}/>
                           </div>
                           <button className={'primary-button'} type={'submit'}>
                               Get Feedback
