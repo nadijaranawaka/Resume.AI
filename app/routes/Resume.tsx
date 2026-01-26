@@ -4,6 +4,7 @@ import {usePuterStore} from "~/lib/puter";
 import Summary from "~/components/summary";
 import ATS from "~/components/ATS";
 import Details from "~/components/details";
+import {resume} from "react-dom/server";
 
 export const meta = () => ([
     { title:"Resume.AI | Review "},
