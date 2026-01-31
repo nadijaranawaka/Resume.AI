@@ -27,8 +27,8 @@ const auth = () => {
                   </div>
                   <div>
                       {isLoading ? (
-                          <button className={"auth-button animate-pulse"}>
-                              <p>Signin you in</p>
+                          <button className={"auth-button animate-pulse flex flex-col justify-center items-center"}>
+                              <img src={"/public/images/infinite-spinner.svg"} className={"w-20 h-10 "} alt={"Loading Spinner"}/>
                           </button>
                       ):(
                           <>
