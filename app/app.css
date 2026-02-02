@@ -3,20 +3,42 @@
 @import "tw-animate-css";
 
 @theme {
+    /* Font */
     --font-sans: "Mona Sans", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --color-dark-200: #475467;
-    --color-light-blue-100: #c1d3f81a;
-    --color-light-blue-200: #a7bff14d;
 
-    --color-badge-green: #d5faf1;
-    --color-badge-red: #f9e3e2;
-    --color-badge-yellow: #fceed8;
+    /* Core Brand */
+    --color-primary-emerald: #0F766E;       /* main buttons, highlights */
+    --color-primary-emerald-soft: #34D399;  /* hover, active, subtle highlights */
 
-    --color-badge-green-text: #254d4a;
-    --color-badge-red-text: #752522;
-    --color-badge-yellow-text: #73321b;
+    /* Dark Authority / Text */
+    --color-dark-900: #E5E7EB;   /* headings / primary text (light for dark bg) */
+    --color-dark-200: #94A3B8;   /* body text / secondary info */
+    --color-dark-muted: #64748B; /* muted / meta text */
+
+    /* Panels / Surfaces */
+    --color-surface: #0F172A;        /* card background / modals */
+    --color-surface-muted: #020617;  /* main background / container */
+
+    /* Accent (sparingly, premium feel) */
+    --color-accent-gold: #D4AF37;
+
+    /* Status Badges */
+    --color-badge-green: #22C55E;       /* success */
+    --color-badge-green-text: #E5F7F1;
+
+    --color-badge-red: #EF4444;         /* error */
+    --color-badge-red-text: #FDE2E2;
+
+    --color-badge-yellow: #FACC15;      /* warning */
+    --color-badge-yellow-text: #FFF8E1;
+
+    /* Info / AI highlights */
+    --color-light-blue-100: #1E3A8A33;  /* subtle overlay / charts */
+    --color-light-blue-200: #2563EB4D;  /* stronger highlight / badges */
 }
+
+
 
 html,
 body {
@@ -51,10 +73,17 @@ form {
 
 @layer components {
     .text-gradient {
-        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+        @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0F766E] via-[#0F766E]/20 to-white/30;
     }
     .gradient-border {
-        @apply bg-gradient-to-b from-light-blue-100 to-light-blue-200 p-4 rounded-2xl;
+        @apply bg-gradient-to-b
+        from-[#0F766E]   /* soft top emerald */
+        via-[#0F766E]/40 /* mid emerald accent */
+        to-white/10  /* gentle base, not harsh */
+        p-4
+        rounded-2xl
+        border
+        border-[#0F766E]/20;  /* subtle emerald border */
     }
     .primary-button {
         @apply primary-gradient text-white rounded-full px-4 py-2 cursor-pointer w-full;
@@ -65,7 +94,7 @@ form {
     .resume-summary {
         @apply flex flex-row items-center justify-center p-4 gap-4;
         .category {
-            @apply flex flex-row gap-2 items-center bg-gray-50 rounded-2xl p-4 w-full justify-between;
+            @apply flex flex-row gap-8 items-center bg-gray-50 rounded-2xl p-0 w-full justify-between;
         }
     }
     .back-button {
@@ -85,7 +114,7 @@ form {
     }
 
     .resume-card {
-        @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4;
+        @apply flex flex-col gap-8 h-[560px] w-[350px] lg:w-[430px] xl:w-[490px] bg-white rounded-2xl p-4 drop-shadow-2xl;
     }
 
     .resume-card-header {
@@ -97,7 +126,7 @@ form {
     }
 
     .navbar {
-        @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto;
+        @apply flex flex-row justify-between items-center bg-white rounded-full p-4 w-full px-10 max-w-[1200px] mx-auto shadow-2xl;
     }
 
     .score-badge {
@@ -108,7 +137,7 @@ form {
         @apply flex flex-col gap-2 w-full items-start;
     }
 
-    .uplader-drag-area {
+    .uploader-drag-area {
         @apply relative p-8 text-center transition-all duration-700 cursor-pointer bg-white rounded-2xl min-h-[208px];
     }
     .uploader-selected-file {
@@ -117,11 +146,11 @@ form {
 }
 
 @utility bg-gradient {
-    background: linear-gradient(to bottom, #f0f4ff 60%, #fa7185cc);
+    background: linear-gradient(to bottom, #f0f4ff 60%, #0f766e);
 }
 
 @utility text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#AB8C95] via-[#000000] to-[#8E97C5];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0F766E] via-[#34D399] to-black;
 }
 
 @utility gradient-hover {
@@ -129,10 +158,15 @@ form {
 }
 
 @utility primary-gradient {
-    background: linear-gradient(to bottom, #8e98ff, #606beb);
-    box-shadow: 0px 74px 21px 0px #6678ef00;
+    background: linear-gradient(
+            to bottom,
+            #34D399,
+            #0F766E
+    );
+    box-shadow:
+            0 12px 24px rgba(15, 118, 110, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
-
 @utility primary-gradient-hover {
     background: linear-gradient(to bottom, #717dff, #4957eb);
 }
