@@ -112,4 +112,4 @@ npm run dev
 
 ---
 
-*Built by [Nadija Ranawaka](https://github.com/nadijaranawaka) — 1st year AI & Data Science undergrad, Sri Lanka 🇱🇰*
+*Built by [Nadija Ranawaka](https://github.com/nadijaranawaka) — 1st year AI & Data Science undergrad
